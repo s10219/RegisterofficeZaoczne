@@ -1,4 +1,4 @@
-package registerOffice.businessObjects.persons;
+package registerOffice.businessObjects.cyclists;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +16,7 @@ import org.hibernate.annotations.NamedQueries;
 import org.hibernate.annotations.NamedQuery;
 
 import registerOffice.Context;
-import registerOffice.businessObjects.cars.*;
+import registerOffice.businessObjects.bikes.*;
 
 
 @Entity

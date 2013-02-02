@@ -1,4 +1,4 @@
-package registerOffice.businessObjects.cars;
+package registerOffice.businessObjects.bikes;
 
 public class Tandem extends Bike{
 

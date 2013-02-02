@@ -1,6 +1,6 @@
-package registerOffice.businessObjects.cars;
+package registerOffice.businessObjects.bikes;
 
-import registerOffice.businessObjects.persons.Cyclist;
+import registerOffice.businessObjects.cyclists.Cyclist;
 
 public interface BikeInterface {
 

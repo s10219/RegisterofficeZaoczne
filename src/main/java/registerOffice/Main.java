@@ -9,10 +9,10 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import registerOffice.businessObjects.cars.Bike;
-import registerOffice.businessObjects.cars.CyclistBike;
-import registerOffice.businessObjects.cars.Tandem;
-import registerOffice.businessObjects.persons.*;
+import registerOffice.businessObjects.bikes.Bike;
+import registerOffice.businessObjects.bikes.CyclistBike;
+import registerOffice.businessObjects.bikes.Tandem;
+import registerOffice.businessObjects.cyclists.*;
 import registerOffice.management.*;
 import registerOffice.management.conditions.Condition;
 import registerOffice.management.conditions.GetByAddressCondition;

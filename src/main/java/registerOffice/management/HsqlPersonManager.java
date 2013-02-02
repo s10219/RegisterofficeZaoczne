@@ -9,7 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import registerOffice.businessObjects.persons.Cyclist;
+import registerOffice.businessObjects.cyclists.Cyclist;
 
 public class HsqlPersonManager 
 	implements ManagerInterface<Cyclist>

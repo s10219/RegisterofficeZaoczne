@@ -3,8 +3,8 @@ package registerOffice.management;
 import java.util.ArrayList;
 import java.util.List;
 
-import registerOffice.businessObjects.cars.Bike;
-import registerOffice.businessObjects.persons.Cyclist;
+import registerOffice.businessObjects.bikes.Bike;
+import registerOffice.businessObjects.cyclists.Cyclist;
 
 public class DatabaseContext {
 

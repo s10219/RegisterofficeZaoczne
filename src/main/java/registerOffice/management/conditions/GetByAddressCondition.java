@@ -1,6 +1,6 @@
 package registerOffice.management.conditions;
 
-import registerOffice.businessObjects.persons.Cyclist;
+import registerOffice.businessObjects.cyclists.Cyclist;
 
 public class GetByAddressCondition extends Condition<Cyclist>{
 

@@ -1,4 +1,4 @@
-package registerOffice.businessObjects.cars;
+package registerOffice.businessObjects.bikes;
 
 import javax.persistence.Entity;
 

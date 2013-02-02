@@ -12,7 +12,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import registerOffice.businessObjects.persons.Cyclist;
+import registerOffice.businessObjects.cyclists.Cyclist;
 
 public class HibernatePersonManagerTests {
 
