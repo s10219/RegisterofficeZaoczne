@@ -20,22 +20,22 @@ import registerOffice.businessObjects.cars.*;
 
 
 @Entity
-@Table(name = "Osoby")
+@Table(name = "Kolarze")
 @NamedQueries({
 	@NamedQuery(
-			name="Person.all",
-			query="from Person p"
+			name="Cyclist.all",
+			query="from Cyclist p"
 			),
 	@NamedQuery(
-			name="Person.id",
-			query="from Person p where id= :id"
+			name="Cyclist.id",
+			query="from Cyclist p where id= :id"
 			),
 	@NamedQuery(
-			name="Person.delete",
-			query="Delete from Person p where id=:id"
+			name="Cyclist.delete",
+			query="Delete from Cyclist p where id=:id"
 			)
 })
-public class Person {
+public class Cyclist {
 
 	@Id
 	@GeneratedValue
@@ -45,7 +45,7 @@ public class Person {
 	private String name;
 	
 	@OneToMany(mappedBy="owner", cascade = CascadeType.PERSIST)
-	private List<Car> cars;
+	private List<Bike> cars;
 	
 	private String pesel;
 	private String address;
@@ -53,26 +53,26 @@ public class Person {
 	@Transient
 	Context context;
 	
-	public Person(String name, String pesel, String address)
+	public Cyclist(String name, String pesel, String address)
 	{
 		this(name,pesel);
 		this.address=address;
 	}
-	public Person(String name, String pesel)
+	public Cyclist(String name, String pesel)
 	{
 		context= Context.getInstance();
 		context.raisenumberOfPeople();
 		this.pesel=pesel;
 		this.name=name;
-		this.cars=new ArrayList<Car>();
+		this.cars=new ArrayList<Bike>();
 	}
 	
-	public Person(String name) {
+	public Cyclist(String name) {
 		
 		this(name,"");
 	}
 	
-	public Person()
+	public Cyclist()
 	{
 		
 		this("","");
@@ -84,11 +84,11 @@ public class Person {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public List<Car> getCars() {
+	public List<Bike> getBikes() {
 		return cars;
 	}
-	public void setCars(List<Car> cars) {
-		this.cars = cars;
+	public void setBikes(List<Bike> bikes) {
+		this.cars = bikes;
 	}
 
 	public String getPesel() {

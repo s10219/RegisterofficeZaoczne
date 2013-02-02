@@ -3,18 +3,18 @@ package registerOffice.management;
 import java.util.ArrayList;
 import java.util.List;
 
-import registerOffice.businessObjects.cars.Car;
-import registerOffice.businessObjects.persons.Person;
+import registerOffice.businessObjects.cars.Bike;
+import registerOffice.businessObjects.persons.Cyclist;
 
 public class DatabaseContext {
 
-	private static List<Person> persons=new ArrayList<Person>();
-	private static List<Car> cars=new ArrayList<Car>();
+	private static List<Cyclist> persons=new ArrayList<Cyclist>();
+	private static List<Bike> cars=new ArrayList<Bike>();
 	
-	public static List<Person> getPersons() {
+	public static List<Cyclist> getPersons() {
 		return persons;
 	}
-	public static List<Car> getCars() {
+	public static List<Bike> getBikes() {
 		return cars;
 	}
 	

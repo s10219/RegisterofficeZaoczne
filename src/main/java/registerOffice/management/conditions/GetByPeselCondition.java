@@ -1,8 +1,8 @@
 package registerOffice.management.conditions;
 
-import registerOffice.businessObjects.persons.Person;
+import registerOffice.businessObjects.persons.Cyclist;
 
-public class GetByPeselCondition extends Condition<Person>{
+public class GetByPeselCondition extends Condition<Cyclist>{
 
 	private String pesel;
 	
@@ -12,7 +12,7 @@ public class GetByPeselCondition extends Condition<Person>{
 	}
 	
 	@Override
-	protected boolean check(Person obj) {
+	protected boolean check(Cyclist obj) {
 		
 		return obj.getPesel().equalsIgnoreCase(pesel);
 	}

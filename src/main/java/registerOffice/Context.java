@@ -2,7 +2,7 @@ package registerOffice;
 
 public final class Context {
 
-	private int quantityOfCars;
+	private int quantityOfBikes;
 	private int quantityOfPeople;
 	
 	private Context() {
@@ -20,18 +20,18 @@ public final class Context {
 		return instance;
 	}
 	
-	public void reduceCars()
+	public void reduceBikes()
 	{
-		this.quantityOfCars--;
+		this.quantityOfBikes--;
 	}
 	
 	public void reducePeople()
 	{
 		this.quantityOfPeople--;
 	}
-	public void raiseNumberOfCars()
+	public void raiseNumberOfBikes()
 	{
-		this.quantityOfCars++;
+		this.quantityOfBikes++;
 	}
 
 	public void raisenumberOfPeople()
@@ -45,6 +45,6 @@ public final class Context {
 	}
 	public int getQuantity()
 	{
-		return this.quantityOfCars;
+		return this.quantityOfBikes;
 	}
 }

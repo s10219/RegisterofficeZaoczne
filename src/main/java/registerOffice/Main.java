@@ -9,9 +9,9 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import registerOffice.businessObjects.cars.Car;
-import registerOffice.businessObjects.cars.PersonCar;
-import registerOffice.businessObjects.cars.TruckCar;
+import registerOffice.businessObjects.cars.Bike;
+import registerOffice.businessObjects.cars.CyclistBike;
+import registerOffice.businessObjects.cars.Tandem;
 import registerOffice.businessObjects.persons.*;
 import registerOffice.management.*;
 import registerOffice.management.conditions.Condition;
@@ -29,64 +29,44 @@ public class Main {
 		
 		Session session = factory.openSession();
 		
-		ManagerInterface<Person> hib= 
-				new HibernatePersonManager(session);
+		ManagerInterface<Cyclist> hib= 
+				new HibernateCyclistManager(session);
 				
+		//definicja kolarzy
+		Cyclist JMJ = new Cyclist("Jean Michelle Jarre", "1234", "Pola Elizejskie 55");
+		Cyclist Napo = new Cyclist("Napoleon", "4567", "Brzegi 35");
+		Cyclist Jean = new Cyclist("Jean Reno", "1157", "Rondo De Gaulle'a 1/15");
+		Cyclist deGaulle = new Cyclist("Charles De Gaulle", "4687", "Rondo");
 		
-		Person adam = new Person("Adam", "1234", "Brzegi 55");
-		Car alfa = new PersonCar("Alfa Romeo","gda1234");
-		Car peugeot = new PersonCar("Pegeot","gda5678");
-		alfa.setOwner(adam);
-		peugeot.setOwner(adam);
-		adam.getCars().add(alfa);
-		adam.getCars().add(peugeot);
+		//definicja rowerow
+		Bike romet = new CyclistBike("Romet","sniezna biel");
+		Bike wigry = new CyclistBike("Wigry 3","lsniace srebro");
+		Bike trek = new CyclistBike("Trek 3000","czerń nocy");
 		
-		hib.save(adam);
+		//nadanie wlascicieli
+		romet.setOwner(JMJ);
+		wigry.setOwner(Jean);
+		trek.setOwner(deGaulle);
 		
-		List<Person>results = hib.getAll();
+		//przypisanie roweru do kolarza
+		JMJ.getBikes().add(romet);
+		Napo.getBikes().add(wigry);
+		Jean.getBikes().add(romet);
+		//JMJ.getBikes().add(wigry);
+		deGaulle.getBikes().add(trek);
 		
-		for(Person p :results)
+		hib.save(JMJ);
+		hib.save(Napo);
+		hib.save(Jean);
+		hib.save(deGaulle);
+		
+		List<Cyclist>results = hib.getAll();
+		
+		for(Cyclist p :results)
 		{
 			System.out.println(p.getName());
 		}
 		
-		
-		
-//		ManagerInterface<Person> mgr= new HsqlPersonManager();
-//		
-////		ManagerInterface<Person> mgr= new PersonManager();
-////		
-//		mgr.save(new Person("Adam","1234","Gdańsk"));
-//		mgr.save(new Person("Paweł","12345","Elbląg"));
-//		mgr.save(new Person("Michał","12344","Gdańsk"));
-//		mgr.save(new Person("Ola","1234534","Gdynia"));
-//		mgr.save(new Person("Ania","1236544","Sopot"));
-//		mgr.save(new Person("Adam","12342","Sopot"));
-//		mgr.save(new Person("Adam","12344","Gdańsk"));
-//		mgr.save(new Person("Adam","12354","Gdynia"));
-////		
-//		for(Person p: mgr.getAll())
-//			System.out.println(p.getName());
-//		
-//		Condition<Person> byname=new GetByNameCondition("Adam");
-//		Condition<Person> byaddress=new GetByAddressCondition("Sopot");
-//		Condition<Person> mainCondition=new Condition<Person>()
-//				{
-//					@Override
-//					protected boolean check(Person obj) {
-//						return true;
-//					}};
-//		
-//		byname.setCondition(byaddress);
-//		mainCondition.setCondition(byname);
-//		for(Person p:mgr.getAll(mainCondition))
-//		{
-//			System.out.println(p.getName()
-//					+" "
-//					+p.getAddress()
-//					+" "+ p.getPesel());
-//		}
-//		
 	}
 
 }

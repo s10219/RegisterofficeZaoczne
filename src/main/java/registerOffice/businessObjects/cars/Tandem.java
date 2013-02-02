@@ -1,15 +1,15 @@
 package registerOffice.businessObjects.cars;
 
-public class TruckCar extends Car{
+public class Tandem extends Bike{
 
 	@Override
-	public String getCarDetails() {
+	public String getBikeDetails() {
 		// TODO Auto-generated method stub
-		return "This is a truck.";
+		return "This is a tandem.";
 	}
 
 	@Override
-	public Car Clone() {
+	public Bike Clone() {
 		// TODO Auto-generated method stub
 		return null;
 	}

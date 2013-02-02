@@ -7,10 +7,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 
 import registerOffice.Context;
-import registerOffice.businessObjects.persons.Person;
+import registerOffice.businessObjects.persons.Cyclist;
 
 @Entity
-public abstract class Car implements CarInterface{
+public abstract class Bike implements BikeInterface{
 
 	@Id
 	@GeneratedValue
@@ -18,26 +18,26 @@ public abstract class Car implements CarInterface{
 	
 	
 	@ManyToOne
-	protected Person owner;
+	protected Cyclist owner;
 	
 	@Transient
 	Context context;
-	public Car(){
+	public Bike(){
 		context =Context.getInstance();
-		context.raiseNumberOfCars();
+		context.raiseNumberOfBikes();
 	}
 	
 	public void printData()
 	{
 		System.out.println("Owner: "+owner.getName());
-		System.out.println(getCarDetails());
+		System.out.println(getBikeDetails());
 	}
 	
-	public abstract String getCarDetails();
+	public abstract String getBikeDetails();
 	
-	public abstract Car Clone();
+	public abstract Bike Clone();
 	
-	public void setOwner(Person owner)
+	public void setOwner(Cyclist owner)
 	{
 		this.owner=owner;
 	}
@@ -52,7 +52,7 @@ public abstract class Car implements CarInterface{
 
 	@Override
 	protected void finalize() throws Throwable {
-		context.reduceCars();
+		context.reduceBikes();
 		super.finalize();
 	}
 	

@@ -12,12 +12,12 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import registerOffice.businessObjects.persons.Person;
+import registerOffice.businessObjects.persons.Cyclist;
 
 public class HibernatePersonManagerTests {
 
 	
-	private HibernatePersonManager mgr;
+	private HibernateCyclistManager mgr;
 	private SessionFactory factory;
 	
 	
@@ -33,7 +33,7 @@ public class HibernatePersonManagerTests {
 	public void setUp() throws Exception {
 		factory = 
 				new Configuration().configure().buildSessionFactory();
-		mgr = new HibernatePersonManager(factory.openSession());
+		mgr = new HibernateCyclistManager(factory.openSession());
 		
 		
 	}
@@ -44,9 +44,9 @@ public class HibernatePersonManagerTests {
 
 	@Test
 	public void testGet() {
-		Person result = mgr.get(1);
-		Person result2 = mgr.get(1);
-		Person result3 = mgr.get(100);
+		Cyclist result = mgr.get(1);
+		Cyclist result2 = mgr.get(1);
+		Cyclist result3 = mgr.get(100);
 		assertNotNull("brak wyników",result);
 		assertEquals("zle ustawienie Id",result.getId(),1);
 		
@@ -62,7 +62,7 @@ public class HibernatePersonManagerTests {
 
 	@Test
 	public void testGetAll() {
-		List<Person> results = mgr.getAll();
+		List<Cyclist> results = mgr.getAll();
 		
 		assertNotNull("Lista jest nullem", results);
 		assertTrue("ilosc elementów w liscie sie nie zgadza",
@@ -71,9 +71,9 @@ public class HibernatePersonManagerTests {
 
 	@Test
 	public void testSave() {
-		Person p = new Person("Tomasz","2314","Morska");
+		Cyclist p = new Cyclist("Tomasz","2314","Morska");
 		mgr.save(p);
-		Person result = mgr.get(7);
+		Cyclist result = mgr.get(7);
 		assertNotNull("nie zapisano do bazy",result);
 		assertEquals("zle ustawienie adresu",result.getAddress(),"Morska");
 		assertEquals("zle ustawienie imion",result.getName(), "Tomasz");
@@ -83,10 +83,10 @@ public class HibernatePersonManagerTests {
 
 	@Test
 	public void testDelete() {
-		Person p = mgr.get(1);
+		Cyclist p = mgr.get(1);
 		boolean deleted = mgr.delete(p);
 		
-		Person result = mgr.get(1);
+		Cyclist result = mgr.get(1);
 		assertTrue("nie skasowano",deleted);
 		assertTrue("ilosc danych w bazie nie zmalala",
 				mgr.getAll().size()==5);

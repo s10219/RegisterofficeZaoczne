@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 
 
 @Entity
-public class PersonCar extends Car{
+public class CyclistBike extends Bike{
 
 	//pole statyczne
 	
@@ -13,18 +13,18 @@ public class PersonCar extends Car{
 	
 	
 	private String mark;
-	private String registerNumber;
+	private String frameColor;
 	
 	//pola publiczne
 	
 	//konstruktory
-	public PersonCar(String mark, String registerNumber)
+	public CyclistBike(String mark, String color)
 	{
 		this.mark=mark;
-		this.registerNumber=registerNumber;
+		this.frameColor=color;
 	}
 	
-	public PersonCar()
+	public CyclistBike()
 	{
 		this("","");
 	}
@@ -39,27 +39,27 @@ public class PersonCar extends Car{
 	}
 
 	public String getRegisterNumber() {
-		return registerNumber;
+		return frameColor;
 	}
 
 	public void setRegisterNumber(String registerNumber) {
-		this.registerNumber = registerNumber;
+		this.frameColor = registerNumber;
 	}
 	
 	//metody
 	
 
 	@Override
-	public String getCarDetails() {
+	public String getBikeDetails() {
 		// TODO Auto-generated method stub
-		return mark+" "+registerNumber;
+		return mark+" "+frameColor;
 	}
 
 	@Override
-	public Car Clone() {
+	public Bike Clone() {
 		
-		PersonCar returnValue =new PersonCar();
-		returnValue.setRegisterNumber(this.registerNumber);
+		CyclistBike returnValue =new CyclistBike();
+		returnValue.setRegisterNumber(this.frameColor);
 		
 		return returnValue;
 	}
