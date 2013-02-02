@@ -52,7 +52,6 @@ public class Main {
 		JMJ.getBikes().add(romet);
 		Napo.getBikes().add(wigry);
 		Jean.getBikes().add(romet);
-		//JMJ.getBikes().add(wigry);
 		deGaulle.getBikes().add(trek);
 		
 		hib.save(JMJ);
